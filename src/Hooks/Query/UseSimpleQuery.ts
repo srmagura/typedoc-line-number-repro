@@ -1,7 +1,6 @@
 ﻿import { useRef, useEffect, useCallback, useContext } from 'react'
 import { defaults, noop } from 'lodash'
 import { CancellablePromise } from 'real-cancellable-promise'
-import { ItiReactCoreContext } from '../../ItiReactCoreContext'
 
 interface DoQueryInternalOptions {
     changeLoading: boolean
@@ -71,14 +70,14 @@ export interface UseSimpleQueryReturn {
 export function useSimpleQuery<TQueryParams, TResult>(
     props: UseSimpleQueryProps<TQueryParams, TResult>
 ): UseSimpleQueryReturn {
-    const itiReactCoreContext = useContext(ItiReactCoreContext)
+   // const itiReactCoreContext = useContext(ItiReactCoreContext)
 
     const { queryParams, debounceDelay, ...defaultedProps } = defaults(
         { ...props },
         {
             onLoadingChange: noop,
             onQueryStarted: noop,
-            onError: itiReactCoreContext.onError,
+            onError: () => {}, //itiReactCoreContext.onError,
             shouldSkipQuery: () => false,
             debounceDelay: 500,
         }
@@ -97,7 +96,7 @@ export function useSimpleQuery<TQueryParams, TResult>(
         onQueryStartedRef.current = defaultedProps.onQueryStarted
         onLoadingChangeRef.current = defaultedProps.onLoadingChange
         onResultReceivedRef.current = defaultedProps.onResultReceived
-        onErrorRef.current = defaultedProps.onError ?? itiReactCoreContext.onError
+        onErrorRef.current = defaultedProps.onError //?? itiReactCoreContext.onError
         shouldQueryImmediatelyRef.current = defaultedProps.shouldQueryImmediately
         shouldSkipQueryRef.current = defaultedProps.shouldSkipQuery
     })
