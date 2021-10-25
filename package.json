@@ -1,0 +1,88 @@
+{
+  "name": "typedoc-line-number-repro",
+  "packageManager": "yarn@3.0.2",
+  "version": "3.1.0",
+  "description": "Common utilities for React DOM and React Native.",
+  "homepage": "https://github.com/srmagura/iti-react",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/srmagura/iti-react.git"
+  },
+  "license": "MIT",
+  "author": "Interface Technologies, Inc.",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "typedocMain": "src/index.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "yarn clean && tsc && rollup -c ../rollup.config.js",
+    "clean": "rimraf dist",
+    "lint": "eslint --max-warnings 0",
+    "lint-all": "yarn lint .",
+    "lint-staged": "lint-staged --no-stash",
+    "prepack": "yarn build",
+    "prettier": "prettier",
+    "test": "jest"
+  },
+  "prettier": "@interface-technologies/prettier-config",
+  "dependencies": {
+    "immer": "^9.0.6",
+    "input-format": "^0.3.6",
+    "lodash": "^4.17.21",
+    "moment-timezone": "^0.5.33",
+    "real-cancellable-promise": "^1.1.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.15.5",
+    "@babel/preset-env": "^7.15.6",
+    "@babel/preset-react": "^7.14.5",
+    "@babel/preset-typescript": "^7.15.0",
+    "@rollup/plugin-commonjs": "^21.0.0",
+    "@rollup/plugin-typescript": "^8.2.5",
+    "@testing-library/react-hooks": "^7.0.2",
+    "@types/jest": "27.0.2",
+    "@types/lodash": "^4.14.175",
+    "@types/react": "^17.0.27",
+    "@typescript-eslint/eslint-plugin": "^4.33.0",
+    "@typescript-eslint/parser": "^4.33.0",
+    "babel-jest": "^27.2.4",
+    "eslint": "^7.32.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-config-airbnb-typescript": "^14.0.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-import-resolver-typescript": "^2.5.0",
+    "eslint-plugin-import": "^2.24.2",
+    "eslint-plugin-jest": "^24.5.2",
+    "eslint-plugin-jest-dom": "^3.9.2",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-promise": "^5.1.0",
+    "eslint-plugin-react": "^7.26.1",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "eslint-plugin-testing-library": "^4.12.4",
+    "jest": "^27.2.4",
+    "jest-haste-map": "^27.2.4",
+    "jest-resolve": "^27.2.4",
+    "lint-staged": "^11.2.0",
+    "prettier": "^2.4.1",
+    "react": "^17.0.2",
+    "react-test-renderer": "^17.0.2",
+    "rimraf": "^3.0.2",
+    "rollup": "^2.58.0",
+    "rollup-plugin-copy": "^3.4.0",
+    "ts-jest": "^27.0.5",
+    "tslib": "^2.3.1",
+    "typedoc": "^0.22.6",
+    "typescript": "^4.4.4"
+  },
+  "peerDependencies": {
+    "jest": "^27.2.4",
+    "react": "^17.0.2"
+  },
+  "peerDependenciesMeta": {
+    "jest": {
+      "optional": true
+    }
+  }
+}
